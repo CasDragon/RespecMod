@@ -915,17 +915,17 @@ namespace RespecWrath
                 Main.logger.Log("Library data gathering initiated");
                 DeityBackground.DeityFeatures = DeityBackground.DeitySelect?.AllFeatures.Select(a => a).ToArray();
                 List<BlueprintFeature> tempbackgroundlist = [DeityBackground.BackgroundSelect];
-                foreach (var background in DeityBackground.BackgroundSelect?.AllFeatures.NotNull())
+                foreach (var background in DeityBackground.BackgroundSelect?.AllFeatures.NotNull() ?? [])
                 {
                     tempbackgroundlist.Add(background);
                     if (background is BlueprintFeatureSelection background1)
                     {
-                        foreach (var selection in background1?.AllFeatures.NotNull())
+                        foreach (var selection in background1?.AllFeatures.NotNull() ?? [])
                         {
                             tempbackgroundlist.Add(selection);
                             if (selection is BlueprintFeatureSelection selection1)
                             {
-                                foreach (var selection2 in selection1?.AllFeatures.NotNull())
+                                foreach (var selection2 in selection1?.AllFeatures.NotNull() ?? [])
                                 {
                                         tempbackgroundlist.Add(selection2);
                                 }
