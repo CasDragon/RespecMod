@@ -925,12 +925,18 @@ namespace RespecWrath
                         {
                             foreach (var selection in ((BlueprintFeatureSelection)background)?.AllFeatures)
                             {
-                                tempbackgroundlist.Add(selection);
-                                if (selection.GetType() == typeof(BlueprintFeatureSelection))
+                                if (selection != null)
                                 {
-                                    foreach (var selection2 in ((BlueprintFeatureSelection)selection)?.AllFeatures)
+                                    tempbackgroundlist.Add(selection);
+                                    if (selection.GetType() == typeof(BlueprintFeatureSelection))
                                     {
-                                        tempbackgroundlist.Add(selection2);
+                                        foreach (var selection2 in ((BlueprintFeatureSelection)selection)?.AllFeatures)
+                                        {
+                                            if (selection2 != null)
+                                            {
+                                                tempbackgroundlist.Add(selection2);
+                                            }
+                                        }
                                     }
                                 }
                             }
